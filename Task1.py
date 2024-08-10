@@ -8,6 +8,7 @@ from sklearn.metrics import mean_squared_error
 
 # Load the dataset
 df = pd.read_csv('train.csv')
+prin(df)
 
 # Select the relevant features
 x = df[['GrLivArea', 'BedroomAbvGr', 'FullBath']]
@@ -26,8 +27,8 @@ model.fit(x_train, y_train)
 y_pred = model.predict(x_test)
 
 # Evaluate the model
-rmse = mean_squared_error(y_test, y_pred,squared=False)
-print(f" Root Mean Squared Error: {rmse:.2f}")
+mse = mean_squared_error(y_test, y_pred,squared=False)
+print(f"Mean Squared Error: {mse:.2f}")
 
 #prediction for a new house
 new_home1= pd.DataFrame([[2100,3,2]], columns=['GrLivArea', 'BedroomAbvGr', 'FullBath'])
